@@ -18,7 +18,8 @@ public class Main {
         }
 
         score += li[x][y];
-        for (int d = dir; d <= 4; d++){
+        int end = (dir == 4)? 4 : dir + 1;
+        for (int d = dir; d <= end; d++){
             int nx = x + m.get(d)[0];
             int ny = y + m.get(d)[1];
 
