@@ -1,48 +1,57 @@
 import java.util.*;
 
 public class Main {
-    static int n;
+    static int n, answer, r, c;
     static int[][] li;
+    static Map<Integer, int[]> m = new HashMap<>();
+
+    static void dfs(int x, int y, int score, int dir){
+        if (x < 0 || x >= n || y < 0 || y >= n){
+            return;
+        }
+
+        if (x == r && y == c && dir == 4){
+            if (answer < score){
+                answer = score;
+            }
+            return;
+        }
+
+        score += li[x][y];
+        for (int d = dir; d <= 4; d++){
+            int nx = x + m.get(d)[0];
+            int ny = y + m.get(d)[1];
+
+            dfs(nx, ny, score, d);
+        }
+
+    }
 
     public static void main(String[] args) {
+        m.put(1, new int[]{-1, 1});
+        m.put(2, new int[]{-1, -1});
+        m.put(3, new int[]{1, -1});
+        m.put(4, new int[]{1, 1});
+
+
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         li = new int[n][n];
-        for (int r = 0; r < n; r++){
-            for (int c = 0; c < n; c++){
+        for (r = 0; r < n; r++){
+            for (c = 0; c < n; c++){
                 li[r][c] = sc.nextInt();
             }
         }
 
-        int answer = 0;
-        for (int r = 2; r < n; r++){
-            for(int c = 1; c < n - 1; c++){
-                int tmp = li[r][c] + li[r - 1][c + 1] + li[r - 2][c] + li[r - 1][c - 1];
-
-                int x1 = r - 1; int y1 = c + 1;
-                int x2 = r - 2; int y2 = c;
-
-                while(true){
-                    x1 -= 1; y1 += 1;
-                    x2 -= 1; y2 += 1;
-
-                    if (x1 >= 0 && x1 < n && x2 >= 0 && x2 < n
-                    && y1 >= 0 && y1 < n && y2 >= 0 && y2 < n){
-                        tmp += (li[x1][y1] + li[x2][y2]);
-                    }
-                    else{
-                        break;
-                    }
-                }
-
-                if (tmp > answer){
-                    answer = tmp;
-                }
-
+        answer = 0;
+        for (r = 2; r < n; r++){
+            for(c = 1; c < n - 1; c++){
+                int tmp = 0;
+                dfs(r, c, tmp, 1);
             }
         }
 
         System.out.println(answer);
-
+        sc.close();
     }
 }
