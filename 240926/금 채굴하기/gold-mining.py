@@ -13,7 +13,7 @@ def search(r, c, k):
                 num += 1
     return num
 
-answer = -1
+answer = 0
 
 k = 0
 while k <= n:
