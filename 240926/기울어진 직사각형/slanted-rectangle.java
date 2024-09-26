@@ -14,12 +14,8 @@ public class Main {
             }
         }
 
-        int nn = n / 2;
-        if (n == 3){
-            nn = 2;
-        }
         int answer = 0;
-        for (int r = nn; r < n; r++){
+        for (int r = 2; r < n; r++){
             for(int c = 1; c < n - 1; c++){
                 int tmp = li[r][c] + li[r - 1][c + 1] + li[r - 2][c] + li[r - 1][c - 1];
 
