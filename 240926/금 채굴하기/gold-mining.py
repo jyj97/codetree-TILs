@@ -13,10 +13,10 @@ def search(r, c, k):
                 num += 1
     return num
 
-answer = 0
+answer = -1
 
 k = 0
-while k <= n - 1:
+while k <= n:
     for r in range(n):
         for c in range(n):
             tmp = search(r, c, k)
