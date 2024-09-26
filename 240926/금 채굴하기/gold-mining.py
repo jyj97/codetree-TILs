@@ -13,7 +13,7 @@ def search(r, c, k):
                 num += 1
     return num
 
-if m > charge(0):
+if m >= charge(0):
     answer = 1
 else:
     answer = 0
@@ -24,7 +24,7 @@ while k <= n - 1:
         for c in range(n):
             tmp = search(r, c, k)
 
-            if tmp * m > charge(k) and tmp > answer:
+            if tmp * m >= charge(k) and tmp > answer:
                 answer = tmp
 
     k += 1
