@@ -13,12 +13,9 @@ def search(r, c, k):
                 num += 1
     return num
 
-if m >= charge(0):
-    answer = 1
-else:
-    answer = 0
+answer = 0
 
-k = 1
+k = 0
 while k <= n - 1:
     for r in range(n):
         for c in range(n):
