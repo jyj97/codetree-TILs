@@ -12,7 +12,7 @@ int main() {
     else if(b < a && b < c){
         cout <<b;
     }
-    else{
+    else if (c < b && c < a){
         cout << c;
     }
     return 0;
