@@ -6,7 +6,7 @@ int main() {
     int a, b;
     cin >> a >>b;
     int cnt = 0;
-    for(int i = 0; i <= b; i++){
+    for(int i = a; i <= b; i++){
         if(i % 6 ==0 && i % 8 != 0){
             cnt+=i;
         }
