@@ -10,6 +10,8 @@ graph = [list(map(int, input().split())) for _ in range(n)]
 
 def dfs(x, y):
 
+    if x == n - 1 and y == m - 1:
+        return 1
 
     for i in range(2):
         nx = x + dx[i]
@@ -19,10 +21,6 @@ def dfs(x, y):
             graph[nx][ny] = graph[x][y] + 1
             dfs(nx, ny)
 
+    return 0
 
-dfs(0,0)
-
-if graph[n - 1][m - 1] > 1:
-    print(1)
-else:
-    print(0)
+print(dfs(0, 0))
