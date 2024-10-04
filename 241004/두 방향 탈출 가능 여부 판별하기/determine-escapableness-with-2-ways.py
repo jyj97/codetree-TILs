@@ -12,17 +12,14 @@ def dfs(x, y):
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if not (0 <= nx < n and 0 <= ny < m):
-            continue
-
-        if graph[nx][ny] != 0:
+        if(0 <= nx < n and 0 <= ny < m) and graph[nx][ny] != 0:   
             graph[nx][ny] = graph[x][y] + 1
             dfs(nx, ny)
 
 
 dfs(0,0)
 
-if graph[n - 1][m - 1] != 0 and graph[n - 1][m - 1] > 1:
+if graph[n - 1][m - 1] > 1:
     print(1)
 else:
     print(0)
