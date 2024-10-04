@@ -12,6 +12,9 @@ answer = 0
 
 def dfs(a, high):
     global answer
+
+    visited[a] = True
+
     if answer < high:
         answer = high
 
