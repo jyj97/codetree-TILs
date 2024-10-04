@@ -21,4 +21,4 @@ def dfs(a, high):
             dfs(i, high + 1)
 
 dfs(1, 0)
-print(answer - 1)
+print(answer)
