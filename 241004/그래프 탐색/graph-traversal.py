@@ -8,22 +8,17 @@ for _ in range(m):
     graph[x].append(y)
     graph[y].append(x)
 
-
 answer = 0
 
-def dfs(a, le):
+def dfs(a, high):
     global answer
-    if visited[a]:
-        return
-
-    visited[a] = True
-    le += 1
-    if answer < le:
-        answer = le
+    if answer < high:
+        answer = high
 
     for i in graph[a]:
         if not visited[i]:
-            dfs(a, le)
+            visited[i] = True
+            dfs(i, high + 1)
 
-dfs(1,1)
-print(answer)
+dfs(1, 0)
+print(answer - 1)
