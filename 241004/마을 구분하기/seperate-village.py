@@ -27,6 +27,7 @@ for r in range(n):
     for c in range(n):
         if li[r][c] == 1:
             answer += 1
+            li[r][c] = 2
             tmp = dfs(r,c)
             numli.append(tmp)
 
@@ -34,4 +35,4 @@ for r in range(n):
 numli.sort()
 print(answer)
 for i in numli:
-    print(i - 1)
+    print(i)
