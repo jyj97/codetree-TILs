@@ -8,22 +8,17 @@ for _ in range(m):
     graph[x].append(y)
     graph[y].append(x)
 
-answer = 0
 
-def dfs(a, high):
-    global answer
 
-    if visited[a]:
-        return
+def dfs(v):
+    visited[v] = True
+    count = 1
 
-    visited[a] = True
-
-    if answer < high:
-        answer = high
-
-    for i in graph[a]:
+    for i in graph[v]:
         if not visited[i]:
-            dfs(i, high + 1)
+            count += dfs(i)
+    
+    return count
 
-dfs(1, 0)
+answer = dfs(1) - 1
 print(answer)
